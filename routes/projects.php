@@ -4,7 +4,7 @@ use Bolsainmobiliariape\ModuleProjects\Http\Controllers\Dashboard\Projects\Index
 use Bolsainmobiliariape\ModuleProjects\Http\Livewire\Dashboard\Projects\Show;
 use Illuminate\Support\Facades\Route;
 
-Route::as('dashboard.projects.')->middleware(['web', 'auth])->prefix('/dashboard/projects')->group(function () {
+Route::as('dashboard.projects.')->middleware(['web', 'auth'])->prefix('/dashboard/projects')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('index');
     Route::get('{project}', Show::class)->name('show');
 });
