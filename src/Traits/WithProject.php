@@ -6,7 +6,12 @@ use Bolsainmobiliariape\ModuleProjects\Models\Project;
 
 trait WithProject
 {
-    public Project $project;
+    public $project;
+
+    public function mount(Project $project)
+    {
+        $this->project = $project;
+    }
 
     public function rules()
     {
