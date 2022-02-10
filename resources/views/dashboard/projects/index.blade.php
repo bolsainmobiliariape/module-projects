@@ -10,7 +10,7 @@
                     <x-slot name="head">                        
                         <x-table.heading>#</x-table.heading>
                         <x-table.heading sortable wire:click="sortBy('contacted')" :direction="$sortField === 'contacted' ? $sortDirection : null">Contactado</x-table.heading>
-                        <x-table.heading>Proyecto</x-table.heading>
+                        <x-table.heading sortable wire:click="sortBy('project')" :direction="$sortField === 'project' ? $sortDirection : null">Proyecto</x-table.heading>
                         <x-table.heading>Nombre</x-table.heading>
                         <x-table.heading>Telefono</x-table.heading>
                         <x-table.heading>Email</x-table.heading>
