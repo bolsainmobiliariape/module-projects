@@ -10,10 +10,10 @@
                     <x-slot name="head">                        
                         <x-table.heading>#</x-table.heading>
                         <x-table.heading sortable wire:click="sortBy('contacted')" :direction="$sortField === 'contacted' ? $sortDirection : null">Contactado</x-table.heading>
+                        <x-table.heading>Proyecto</x-table.heading>
                         <x-table.heading>Nombre</x-table.heading>
                         <x-table.heading>Telefono</x-table.heading>
                         <x-table.heading>Email</x-table.heading>
-                        <x-table.heading>DNI / RUC</x-table.heading>
                         <x-table.heading>Fecha / Hora</x-table.heading>
                         <x-table.heading>Acciones</x-table.heading>
                     </x-slot>
@@ -27,6 +27,9 @@
                                 <x-table.cell>
                                     <input wire:click="markAsContacted({{$project->id}})" type="checkbox" name="contacted"  {{ $project->contacted ? 'checked': ''}}>
                                 </x-table.cell>
+                                 <x-table.cell>
+                                    {{ $project->project }}
+                                </x-table.cell>
                                 <x-table.cell>
                                     {{ $project->name }}
                                 </x-table.cell>
@@ -36,9 +39,7 @@
                                 <x-table.cell>
                                     {{ $project->email }}
                                 </x-table.cell>
-                                <x-table.cell>
-                                    {{ $project->dni }}
-                                </x-table.cell>
+                               
                                 <x-table.cell>
                                     {{ $project->created_at->format('d-m-Y / H:i') }}
                                 </x-table.cell>
