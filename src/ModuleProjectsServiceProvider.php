@@ -6,6 +6,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Bolsainmobiliariape\ModuleProjects\Http\Livewire\Dashboard\Projects\Index;
 use Bolsainmobiliariape\ModuleProjects\Http\Livewire\Dashboard\Projects\Show;
+use Bolsainmobiliariape\ModuleProjects\Commands\ModuleProjectsCommand;
 use Livewire\Livewire;
 
 class ModuleProjectsServiceProvider extends PackageServiceProvider
@@ -29,6 +30,7 @@ class ModuleProjectsServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasRoutes('projects')
-            ->hasMigration('create_module_projects_table');
+            ->hasMigration('create_module_projects_table')
+            ->hasCommand(ModuleProjectsCommand::class);
     }
 }
