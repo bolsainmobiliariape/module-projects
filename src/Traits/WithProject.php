@@ -3,9 +3,13 @@
 namespace Bolsainmobiliariape\ModuleProjects\Traits;
 
 use Bolsainmobiliariape\ModuleProjects\Models\Project;
+use App\Traits\WithSendMails;
+use Bolsainmobiliariape\ModuleProjects\Mail\ProjectsMail;
 
 trait WithProject
 {
+    use WithSendMails;
+
     public $project;
 
     public function mount(Project $project)
@@ -25,6 +29,10 @@ trait WithProject
         $this->validate();
 
         $this->project->save();
+
+        if(env('MAIL', false)){
+            $this->sendMail("Nuevo interesado en {$this->project->project}  - " . config('app.name'), $this->project, ProjectsMail::class);
+        }
 
         $this->doingAfter();
     }
